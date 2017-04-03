@@ -93,17 +93,18 @@ class Assignment3:
 
     def print_summary(self):
         print("All results:")
-        self.get_total_number_of_variants_mother();
-        self.get_total_number_of_variants_father();
-        self.get_variants_shared_by_father_and_son();
-        self.get_variants_shared_by_mother_and_son();
-        self.get_variants_shared_by_trio();
-        self.merge_mother_father_son_into_one_vcf();
-        self.convert_first_variants_of_son_into_HGVS();
+        self.get_total_number_of_variants_mother()
+        self.get_total_number_of_variants_father()
+        self.get_variants_shared_by_father_and_son()
+        self.get_variants_shared_by_mother_and_son()
+        self.get_variants_shared_by_trio()
+        self.merge_mother_father_son_into_one_vcf()
+        self.convert_first_variants_of_son_into_HGVS()
 
 
 
 if __name__ == '__main__':
     print("Assignment 3")
     assignment1 = Assignment3()
-assignment1.print_summary()
+    assignment1.print_summary()
+
