@@ -14,12 +14,12 @@ class Assignment3:
         # Check if hgvs is installed
         print ("HGVS version: %s") % hgvs.__version__
 
-
+        # Initialize reader for the three vcf files
         self.vcf_reader_mother = vcf.Reader(open('AmpliseqExome.20141120.NA24143.vcf','r'))
         self.vcf_reader_father = vcf.Reader(open('AmpliseqExome.20141120.NA24149.vcf','r'))
         self.vcf_reader_son = vcf.Reader(open('AmpliseqExome.20141120.NA24385.vcf','r'))
 
-
+    # the total number of identified variants in the mother
     def get_total_number_of_variants_mother(self):
 
         number_of_variants_mother = 0
@@ -30,6 +30,7 @@ class Assignment3:
         print (number_of_variants_mother)
 
 
+    # the total number of identified variants in the father
     def get_total_number_of_variants_father(self):
 
         number_of_variants_father = 0
@@ -38,8 +39,9 @@ class Assignment3:
 
         print ("-total_number_of_variants_father:")
         print (number_of_variants_father)
-    
 
+    
+    # the number of identified variants shared by father and son
     def get_variants_shared_by_father_and_son(self):
 
         records = 0
@@ -50,7 +52,7 @@ class Assignment3:
         print ("-variants_shared_by_father_and_son:")
         print (records)
 
-
+    # the number of identified variants shared by mother and son
     def get_variants_shared_by_mother_and_son(self):
 
         records = 0
@@ -61,7 +63,7 @@ class Assignment3:
         print ("-variants_shared_by_mother_and_son:")
         print (records)
 
-
+    # the number of identified variants shared by trio
     def get_variants_shared_by_trio(self):
 
         records = 0
@@ -72,7 +74,7 @@ class Assignment3:
         print ("-variants_shared_by_trio:")
         print (records)
 
-
+    # VCF containing all variants of the trio
     def merge_mother_father_son_into_one_vcf(self):
 
         merge_file = open("merge_file.vcf", "w")
@@ -81,14 +83,17 @@ class Assignment3:
             for entry in records:
                 if entry is not None:
                     writer.write_record(entry)
+        print ("-merge_mother_father_son_into_one_vcf:")
+        print("merge VCF successfull")
 
-        print("-merge_mother_father_son:")
-        print(writer)
 
-
+    # Convert the first 100 variants identified in the son into the corresponding transcript HGVS.
+    # Each variant should be mapped to all corresponding transcripts.
+    # Pointer:- https://hgvs.readthedocs.io/en/master/examples/manuscript-example.html#project-genomic-variant-to-a-new-transcript
     def convert_first_variants_of_son_into_HGVS(self):
 
         print("-first_variants_of_son:")
+        print ("to do")
 
 
     def print_summary(self):
